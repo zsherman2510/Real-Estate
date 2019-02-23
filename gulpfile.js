@@ -7,7 +7,7 @@ var exec = require('child_process').exec;
 
 gulp.task('default', ['webpack', 'styles', 'browser-sync'], () => {
 	gulp.watch('./assets/scss/**/*', ['styles']);
-	gulp.watch('./assets/js/components/*', ['webpack']);
+	gulp.watch('./assets/js/**/*', ['webpack']);
 	gulp
 		.watch([
 			'./public/**/*',
@@ -20,7 +20,7 @@ gulp.task('default', ['webpack', 'styles', 'browser-sync'], () => {
 
 gulp.task('watch-proxy', ['webpack', 'styles', 'browser-sync-proxy'], () => {
 	gulp.watch('./assets/scss/**/*', ['styles']);
-	gulp.watch('./assets/js/components/*', ['webpack']);
+	gulp.watch('./assets/js/**/*', ['webpack']);
 	gulp
 		.watch([
 			'./public/**/*',
