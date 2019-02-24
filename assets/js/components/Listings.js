@@ -17,8 +17,8 @@ export default class Listings extends Component {
 							<option value="price-asc">Lowest Price</option>
 						</select>
 						<div className="view">
-							<FontAwesomeIcon icon="th-list" />
-							<FontAwesomeIcon icon="th" />
+							<FontAwesomeIcon icon="th-list" className="fa" />
+							<FontAwesomeIcon icon="th" className="fa" />
 						</div>
 					</div>
 				</section>
