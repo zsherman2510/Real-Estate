@@ -1,0 +1,56 @@
+#filter {
+	background: $grey;
+	width: 100%;
+	max-width: 300px;
+	.inside {
+		padding: 1.2rem;
+	}
+	h4 {
+		margin-bottom: 1.3rem;
+		text-transform: uppercase;
+		font-weight: 600;
+		font-size: .9rem;
+	}
+	select {
+		background: transparent;
+		padding: 10px;
+		font-size: 1rem;
+		font-weight: 300;
+		color: #1b1b1b;
+		display: block;
+		margin-bottom: 1.3rem;
+		width: 100%;
+	}
+	.filters {
+		.title {
+			font-size: .9rem;
+			display: block;
+			margin: 1rem;
+			color: $darkgrey;
+		}
+	}
+}
+
+input[type="text"] {
+	border-radius: 5px;
+	font-size: 1rem;
+	padding: .5rem;
+	width: 45%;
+	display: inline-block;
+	margin: .3rem;
+}
+
+.extras {
+	label {
+		display: block;
+		width: 100%;
+		padding: 1rem 0;
+		input[type="checkbox"] {
+			float: right;
+		}
+	}
+}
+
+#listings {
+	height: 100%;
+}
