@@ -11,10 +11,10 @@ import {
 	faBed,
 	faCouch,
 	faThList,
-	faMapMarker
+	faMapMarkerAlt
 } from '@fortawesome/free-solid-svg-icons';
 
-library.add(faTh, faSquare, faBed, faCouch, faThList, faMapMarker);
+library.add(faTh, faSquare, faBed, faCouch, faThList, faMapMarkerAlt);
 class App extends Component {
 	constructor() {
 		super();
