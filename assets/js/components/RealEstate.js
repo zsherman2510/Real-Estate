@@ -4,6 +4,7 @@ import Header from './Header';
 import Filter from './Filter';
 import Listings from './Listings';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import listingsData from '../data/listingData';
 
 import {
 	faTh,
@@ -19,7 +20,7 @@ class App extends Component {
 	constructor() {
 		super();
 		this.state = {
-			name: 'Joe'
+			listingsData
 		};
 	}
 
@@ -30,7 +31,7 @@ class App extends Component {
 				<Header />{' '}
 				<section id="content-area">
 					<Filter />
-					<Listings />
+					<Listings listingsData={this.state.listingsData} />
 				</section>
 			</div>
 		);

@@ -112,9 +112,9 @@ input[type="text"] {
 		width: 100%;
 		.listing {
 			background: #fff;
-			width: 250px;
+			width: 300px;
 			border-radius: 5px;
-			margin: 1rem;
+			margin: .5rem;
 			-webkit-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
 			-moz-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
 			box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
@@ -125,7 +125,7 @@ input[type="text"] {
 			position: relative;
 			background: url(https://everythingstrangeandnew.com/wp-content/uploads/2019/01/Best-Modern-House-Design.jpg)
 				no-repeat center center;
-			background-size: cover;
+			background-size: cover !important;
 			height: 225px;
 			width: 100%;
 			border-top-left-radius: 5px;
@@ -140,6 +140,8 @@ input[type="text"] {
 				}
 			}
 			.address {
+				font-size: 1.2rem;
+				text-transform: capitalize;
 				background: rgba(87, 86, 86, .6);
 				position: absolute;
 				bottom: 1.2rem;
@@ -206,10 +208,11 @@ input[type="text"] {
 				}
 			}
 			.listing-details {
+				padding: .5rem;
 				margin: 1rem;
 				display: flex;
 				flex-flow: wrap;
-				justify-content: space-around;
+				justify-content: space-evenly;
 				div {
 					margin: 10px;
 					font-weight: 100;

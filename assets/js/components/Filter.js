@@ -9,10 +9,6 @@ export default class Filter extends Component {
 					<select name="buying-option" className="filters buying-option">
 						<option value="">For Rent</option>
 						<option value="">For Sale</option>
-						<option value="">Foreclosures</option>
-						<option value="">New Construction</option>
-						<option value="">By Agent</option>
-						<option value="">By Owner</option>
 					</select>
 					<select name="neighborhood" className="filters neighborhood">
 						<option value="">Choose Neighborhood</option>
