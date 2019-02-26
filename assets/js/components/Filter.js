@@ -6,97 +6,136 @@ export default class Filter extends Component {
 			<section id="filter">
 				<div className="inside">
 					<h4>Filter</h4>
-					<select name="buying-option" className="filters buying-option">
-						<option value="">For Rent</option>
-						<option value="">For Sale</option>
+					<label htmlFor="buying_option">Rent/Buy</label>
+					<select
+						name="buying_option"
+						className="filters buying_option"
+						onChange={this.props.change}
+					>
+						<option value="All">All Options</option>
+						<option value="For Rent">For Rent</option>
+						<option value="For Sale">For Sale</option>
 					</select>
-					<select name="neighborhood" className="filters neighborhood">
-						<option value="">Choose Neighborhood</option>
-						<option value="">Oro Valley</option>
-						<option value="">Vail</option>
-						<option value="">South Tucson</option>
-						<option value="">Casa Grande</option>
+					<label htmlFor="city">City</label>
+					<select
+						name="city"
+						className="filters city"
+						onChange={this.props.change}
+					>
+						<option value="All">All Cities</option>
+						<option value="Oro Valley">Oro Valley</option>
+						<option value="Vail">Vail</option>
+						<option value="South Tucson">South Tucson</option>
+						<option value="Casa Grande">Casa Grande</option>
 					</select>
-					<select name="housetype" className="filters housetype">
-						<option value="">Choose House type</option>
-						<option value="">Ranch</option>
-						<option value="">Condo</option>
-						<option value="">Townhouse</option>
+					<label htmlFor="houseType">House Type</label>
+					<select
+						name="houseType"
+						className="filters houseType"
+						onChange={this.props.change}
+					>
+						<option value="All">All Homes</option>
+						<option value="Ranch">Ranch</option>
+						<option value="Condo">Condo</option>
+						<option value="Townhouse">Townhouse</option>
 					</select>
-					<select name="bedrooms" className="filters bedrooms">
-						<option value="">Choose bedrooms</option>
-						<option value="">2+ BR</option>
-						<option value="">3+ BR</option>
-						<option value="">4+ BR</option>
+					<label htmlFor="bedrooms">Bedrooms</label>
+					<select
+						name="bedrooms"
+						className="filters bedrooms"
+						onChange={this.props.change}
+					>
+						<option value="0">0+ BR</option>
+						<option value="2">2+ BR</option>
+						<option value="3">3+ BR</option>
+						<option value="4">4+ BR</option>
 					</select>
-					<select name="bathrooms" className="filters bathrooms">
-						<option value="">Choose bathrooms</option>
-						<option value="">2+ BA</option>
-						<option value="">3+ BA</option>
-						<option value="">4+ BA</option>
+					<label htmlFor="bathrooms">Bath</label>
+					<select
+						name="bathrooms"
+						className="filters bathrooms"
+						onChange={this.props.change}
+					>
+						<option value="0">0+ BA</option>
+						<option value="2">2+ BA</option>
+						<option value="3">3+ BA</option>
+						<option value="4">4+ BA</option>
 					</select>
 					<div className="filters price">
 						<span className="title">Price</span>
 						<input
-							type="text"
-							name="min-price"
-							className="min-price"
+							type="number"
+							name="min_price"
+							className="min_price"
 							placeholder="min"
+							value={this.props.globalState.min_price}
+							onChange={this.props.change}
 						/>
 						<input
-							type="text"
-							name="max-price"
-							className="max-price"
+							type="number"
+							name="max_price"
+							className="max_price"
 							placeholder="max"
+							value={this.props.globalState.max_price}
+							onChange={this.props.change}
 						/>
 					</div>
-					<div className="filters floor-space">
+					<div className="filters floor_space">
 						<span className="title">Floor Space</span>
 						<input
-							type="text"
-							name="min-floor-space"
-							className="min-floor-space"
+							type="number"
+							name="min_floor_space"
+							className="min_floor_space"
 							placeholder="min"
+							value={this.props.globalState.min_floor_space}
+							onChange={this.props.change}
 						/>
 						<input
-							type="text"
-							name="max-floor-space"
-							className="max-floor-space"
+							type="number"
+							name="max_floor_space"
+							className="max_floor_space"
 							placeholder="max"
-						/>
-					</div>
-					<div className="filters radius">
-						<span className="title">Radius</span>
-						<input
-							type="text"
-							name="min-radius"
-							className="min-radius"
-							placeholder="min"
-						/>
-						<input
-							type="text"
-							name="max-radius"
-							className="max-radius"
-							placeholder="max"
+							value={this.props.globalState.max_floor_space}
+							onChange={this.props.change}
 						/>
 					</div>
 					<div className="filters extras">
 						<span className="title">Extras</span>
 						<label htmlFor="extras">
 							<span>Elevators</span>
-							<input name="extras" value="elevator" type="checkbox" />
+							<input
+								name="elevator"
+								value="elevator"
+								type="checkbox"
+								onChange={this.props.change}
+							/>
 						</label>
 						<label htmlFor="extras">
 							<span>Swimming Pool</span>
-							<input name="extras" value="swimming-pool" type="checkbox" />
+							<input
+								name="swimming_pool"
+								value="swimming_pool"
+								type="checkbox"
+								onChange={this.props.change}
+							/>
 						</label>
 						<label htmlFor="extras">
 							<span>Finished Basement</span>
-							<input name="extras" value="finished-basement" type="checkbox" />
+							<input
+								name="finished_basement"
+								value="finished_basement"
+								type="checkbox"
+								onChange={this.props.change}
+							/>
 						</label>
 						<label htmlFor="extras">
 							<span>Gym</span>
-							<input name="extras" value="gym" type="checkbox" />
+							<input
+								name="gym"
+								value="gym"
+								type="checkbox"
+								onChange={this.props.change}
+							/>
 						</label>
 					</div>
 				</div>

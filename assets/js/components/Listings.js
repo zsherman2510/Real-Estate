@@ -9,6 +9,9 @@ export default class Listings extends Component {
 	}
 	loopListings() {
 		const { listingsData } = this.props;
+		if (listingsData == undefined || listingsData.length == 0) {
+			return 'No listings to match your filter';
+		}
 		return listingsData.map((listing, index) => {
 			return (
 				<div className="listing" key={index}>
@@ -19,6 +22,7 @@ export default class Listings extends Component {
 						}}
 					>
 						<span className="address">{listing.address}</span>
+						<span className="houseType">{listing.houseType}</span>
 						<div className="details">
 							<div className="user-img" />
 							<div className="user-details">
@@ -28,14 +32,19 @@ export default class Listings extends Component {
 							<div className="listing-details">
 								<div className="floor-space">
 									<FontAwesomeIcon icon="th" />
-									<span>1500 ft&sup2;</span>
+									<span>{listing.floorSpace} ft&sup2;</span>
 								</div>
 								<div className="bedrooms">
 									<FontAwesomeIcon icon="bed" />{' '}
 									<span>{listing.bedrooms} bedrooms</span>
 								</div>
+								<div className="bathrooms">
+									<FontAwesomeIcon icon="toilet" />{' '}
+									<span>{listing.bathrooms} bathrooms</span>
+								</div>
 								<div className="furnished">
-									<FontAwesomeIcon icon="couch" /> <span>unfurnished</span>
+									<FontAwesomeIcon icon="couch" />{' '}
+									<span>{listing.furniture}</span>
 								</div>
 								<div className="map">
 									<a className="btn" href="">
@@ -46,6 +55,7 @@ export default class Listings extends Component {
 						</div>
 					</div>
 					<div className="bottom-info">
+						<span className="buyingOption">{listing.buyingOption}</span>
 						<span className="price">${listing.price} /month</span>
 						<span className="location">
 							<FontAwesomeIcon icon="map-marker-alt" /> {listing.city},{' '}
@@ -64,7 +74,7 @@ export default class Listings extends Component {
 					<input type="text" name="search" />
 				</section>
 				<section className="sort-by-area">
-					<div className="results">390 results found</div>
+					<div className="results">12 results found</div>
 					<div className="sort-options">
 						<select name="sort-by" className="sort-by" id="">
 							<option value="price-asc">Highest Price</option>
