@@ -118,6 +118,9 @@ input[type="text"] {
 			-webkit-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
 			-moz-box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
 			box-shadow: 0px 9px 54px -4px rgba(224, 224, 224, 1);
+			&#long-view {
+				width: 600px;
+			}
 		}
 		.listing-img {
 			color: #eee;
@@ -212,10 +215,10 @@ input[type="text"] {
 			}
 			.listing-details {
 				padding: .5rem;
-				margin: 1rem;
+				margin: 5px;
 				display: flex;
 				flex-flow: wrap;
-				justify-content: space-evenly;
+				justify-content: space-around;
 				div {
 					margin: 10px;
 					font-weight: 100;

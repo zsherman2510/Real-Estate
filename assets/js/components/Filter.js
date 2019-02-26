@@ -1,6 +1,85 @@
 import React, { Component } from 'react';
 
 export default class Filter extends Component {
+	constructor() {
+		super();
+		this.state = {};
+		this.buyingOptions = this.buyingOptions.bind(this);
+		this.cities = this.cities.bind(this);
+		this.houseTypes = this.houseTypes.bind(this);
+		this.bedrooms = this.bedrooms.bind(this);
+		this.bathrooms = this.bathrooms.bind(this);
+	}
+	componentWillMount() {
+		this.props.populateAction();
+	}
+	buyingOptions() {
+		if (this.props.globalState.populateFormsData.buyingOptions != undefined) {
+			let { buyingOptions } = this.props.globalState.populateFormsData;
+			console.log(buyingOptions);
+			return buyingOptions.map(listing => {
+				return (
+					<option key={listing} value={listing}>
+						{listing}
+					</option>
+				);
+			});
+		}
+	}
+	cities() {
+		if (this.props.globalState.populateFormsData.cities != undefined) {
+			let { cities } = this.props.globalState.populateFormsData;
+			console.log(cities);
+			return cities.map(listing => {
+				return (
+					<option key={listing} value={listing}>
+						{listing}
+					</option>
+				);
+			});
+		}
+	}
+
+	houseTypes() {
+		if (this.props.globalState.populateFormsData.houseTypes != undefined) {
+			let { houseTypes } = this.props.globalState.populateFormsData;
+			console.log(houseTypes);
+			return houseTypes.map(listing => {
+				return (
+					<option key={listing} value={listing}>
+						{listing}
+					</option>
+				);
+			});
+		}
+	}
+	bedrooms() {
+		if (this.props.globalState.populateFormsData.bedrooms != undefined) {
+			let { bedrooms } = this.props.globalState.populateFormsData;
+			console.log(bedrooms);
+			return bedrooms.map(listing => {
+				return (
+					<option key={listing} value={listing}>
+						{listing} + BR
+					</option>
+				);
+			});
+		}
+	}
+	bathrooms() {
+		if (this.props.globalState.populateFormsData.bathrooms != undefined) {
+			let { bathrooms } = this.props.globalState.populateFormsData;
+			console.log(bathrooms);
+			return bathrooms.map(listing => {
+				return (
+					<option key={listing} value={listing}>
+						{listing} + BA
+					</option>
+				);
+			});
+		}
+	}
+
 	render() {
 		return (
 			<section id="filter">
@@ -13,8 +92,7 @@ export default class Filter extends Component {
 						onChange={this.props.change}
 					>
 						<option value="All">All Options</option>
-						<option value="For Rent">For Rent</option>
-						<option value="For Sale">For Sale</option>
+						{this.buyingOptions()}
 					</select>
 					<label htmlFor="city">City</label>
 					<select
@@ -23,10 +101,7 @@ export default class Filter extends Component {
 						onChange={this.props.change}
 					>
 						<option value="All">All Cities</option>
-						<option value="Oro Valley">Oro Valley</option>
-						<option value="Vail">Vail</option>
-						<option value="South Tucson">South Tucson</option>
-						<option value="Casa Grande">Casa Grande</option>
+						{this.cities()}
 					</select>
 					<label htmlFor="houseType">House Type</label>
 					<select
@@ -35,9 +110,7 @@ export default class Filter extends Component {
 						onChange={this.props.change}
 					>
 						<option value="All">All Homes</option>
-						<option value="Ranch">Ranch</option>
-						<option value="Condo">Condo</option>
-						<option value="Townhouse">Townhouse</option>
+						{this.houseTypes()}
 					</select>
 					<label htmlFor="bedrooms">Bedrooms</label>
 					<select
@@ -45,10 +118,7 @@ export default class Filter extends Component {
 						className="filters bedrooms"
 						onChange={this.props.change}
 					>
-						<option value="0">0+ BR</option>
-						<option value="2">2+ BR</option>
-						<option value="3">3+ BR</option>
-						<option value="4">4+ BR</option>
+						{this.bedrooms()}
 					</select>
 					<label htmlFor="bathrooms">Bath</label>
 					<select
@@ -56,10 +126,7 @@ export default class Filter extends Component {
 						className="filters bathrooms"
 						onChange={this.props.change}
 					>
-						<option value="0">0+ BA</option>
-						<option value="2">2+ BA</option>
-						<option value="3">3+ BA</option>
-						<option value="4">4+ BA</option>
+						{this.bathrooms()}
 					</select>
 					<div className="filters price">
 						<span className="title">Price</span>

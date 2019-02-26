@@ -35,10 +35,25 @@ class App extends Component {
 			swimming_pool: false,
 			finished_basement: false,
 			gym: false,
-			filteredData: listingsData
+			filteredData: listingsData,
+			populateFormsData: '',
+			sortby: 'price-dsc',
+			view: 'box',
+			search: ''
 		};
 		this.change = this.change.bind(this);
 		this.filteredData = this.filteredData.bind(this);
+		this.populateForms = this.populateForms.bind(this);
+		this.changeView = this.changeView.bind(this);
+	}
+	componentWillMount() {
+		let listingsData = this.state.listingsData.sort((a, b) => {
+			return a.price - b.price;
+		});
+
+		this.setState({
+			listingsData
+		});
 	}
 	change(event) {
 		const name = event.target.name;
@@ -55,6 +70,12 @@ class App extends Component {
 				this.filteredData();
 			}
 		);
+	}
+
+	changeView(viewName) {
+		this.setState({
+			view: viewName
+		});
 	}
 
 	filteredData() {
@@ -78,9 +99,84 @@ class App extends Component {
 				return listing.houseType == this.state.houseType;
 			});
 		}
+		if (this.state.sortby == 'price-dsc') {
+			newListing = newListing.sort((a, b) => {
+				return a.price - b.price;
+			});
+		}
+		if (this.state.sortby == 'price-asc') {
+			newListing = newListing.sort((a, b) => {
+				return b.price - a.price;
+			});
+		}
+		if (this.state.search != '') {
+			newListing = newListing.filter(listing => {
+				let city = listing.city.toLowerCase();
+				let searchText = this.state.search.toLowerCase();
+				let n = city.match(searchText);
+
+				if (n != null) {
+					return true;
+				}
+			});
+		}
 		this.setState({
 			filteredData: newListing
 		});
+	}
+	populateForms() {
+		//Buying Options
+		let buyingOptions = this.state.listingsData.map(listing => {
+			return listing.buyingOption;
+		});
+		buyingOptions = new Set(buyingOptions);
+		buyingOptions = [...buyingOptions];
+
+		//City
+		let cities = this.state.listingsData.map(listing => {
+			return listing.city;
+		});
+		cities = new Set(cities);
+		cities = [...cities];
+		cities = cities.sort();
+
+		//HomeType
+		let houseTypes = this.state.listingsData.map(listing => {
+			return listing.houseType;
+		});
+		houseTypes = new Set(houseTypes);
+		houseTypes = [...houseTypes];
+		houseTypes = houseTypes.sort();
+
+		//Bedrooms
+		let bedrooms = this.state.listingsData.map(listing => {
+			return listing.bedrooms;
+		});
+		bedrooms = new Set(bedrooms);
+		bedrooms = [...bedrooms];
+		bedrooms = bedrooms.sort();
+		//Bathrooms
+		let bathrooms = this.state.listingsData.map(listing => {
+			return listing.bathrooms;
+		});
+		bathrooms = new Set(bathrooms);
+		bathrooms = [...bathrooms];
+		bathrooms = bathrooms.sort();
+
+		this.setState(
+			{
+				populateFormsData: {
+					buyingOptions,
+					cities,
+					houseTypes,
+					bedrooms,
+					bathrooms
+				}
+			},
+			() => {
+				console.log(this.state);
+			}
+		);
 	}
 	render() {
 		return (
@@ -88,8 +184,17 @@ class App extends Component {
 				{' '}
 				<Header />{' '}
 				<section id="content-area">
-					<Filter change={this.change} globalState={this.state} />
-					<Listings listingsData={this.state.filteredData} />
+					<Filter
+						change={this.change}
+						globalState={this.state}
+						populateAction={this.populateForms}
+					/>
+					<Listings
+						listingsData={this.state.filteredData}
+						change={this.change}
+						globalState={this.state}
+						changeView={this.changeView}
+					/>
 				</section>
 			</div>
 		);
