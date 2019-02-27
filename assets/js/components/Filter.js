@@ -85,15 +85,7 @@ export default class Filter extends Component {
 			<section id="filter">
 				<div className="inside">
 					<h4>Filter</h4>
-					<label htmlFor="buying_option">Rent/Buy</label>
-					<select
-						name="buying_option"
-						className="filters buying_option"
-						onChange={this.props.change}
-					>
-						<option value="All">All Options</option>
-						{this.buyingOptions()}
-					</select>
+
 					<label htmlFor="city">City</label>
 					<select
 						name="city"

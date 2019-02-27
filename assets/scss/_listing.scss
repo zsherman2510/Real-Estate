@@ -1,33 +1,33 @@
 header {
-    background: $darkpurple;
-    color: #eee;
-    overflow: auto;
-    padding: 1rem;
+	background: $darkpurple;
+	color: #eee;
+	overflow: auto;
+	padding: 1rem;
 
-    .logo{
-        float: left;
-        padding: 0 4rem;
-    }
-    nav {
-        float: right;
-        padding: 0 4rem;
-        a{
-            color: #eee;
-            text-decoration: none;
-            padding: 5px 1rem;
-            text-transform: capitalize;
-            font-weight: 300;
-            font-size: .9rem;
-            &:hover {
-                color: $pink;
-            }
-            &.register-btn{
-                background: $pink;
-                
-                text-align: center;
-                color: #eee;
-                border-radius: 5px;
-            }
-        }
-    }
+	.logo {
+		float: left;
+		padding: 0 1rem;
+	}
+	nav {
+		float: right;
+		padding: 0 1rem;
+		a {
+			color: #eee;
+			text-decoration: none;
+			padding: 5px 1rem;
+			text-transform: capitalize;
+			font-weight: 300;
+			font-size: .9rem;
+			&:hover {
+				color: $pink;
+			}
+			&.register-btn {
+				background: $pink;
+
+				text-align: center;
+				color: #eee;
+				border-radius: 5px;
+			}
+		}
+	}
 }

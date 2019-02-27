@@ -89,6 +89,11 @@ class App extends Component {
 				listing.bathrooms >= this.state.bathrooms
 			);
 		});
+		if (this.state.buyingOption != 'All') {
+			newListing = newListing.filter(listing => {
+				return listing.buyingOption == this.state.buyingOption;
+			});
+		}
 		if (this.state.city != 'All') {
 			newListing = newListing.filter(listing => {
 				return listing.city == this.state.city;

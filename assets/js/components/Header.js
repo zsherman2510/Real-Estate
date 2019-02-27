@@ -4,19 +4,16 @@ import ReactDOM from 'react-dom';
 export default class Header extends Component {
 	constructor() {
 		super();
-		this.state = {
-			name: 'Joe'
-		};
+		this.state = {};
 	}
 
 	render() {
 		return (
 			<header>
-				<div className="logo">Logo</div>
+				<div className="logo">Rent-A-Place</div>
 
 				<nav>
 					<a href="#">Create ads</a>
-					<a href="#">About us</a>
 					<a href="#">Log In</a>
 					<a href="#" className="register-btn">
 						Register
